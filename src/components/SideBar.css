@@ -1,0 +1,7 @@
+.sidebar-item {
+    @apply py-2 px-5 cursor-pointer rounded-2xl hover:bg-[#e8eaed] text-[#5f6368] flex items-center;
+}
+
+.sidebar-item-text {
+    @apply ml-3;
+}

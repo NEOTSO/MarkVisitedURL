@@ -3,8 +3,11 @@
     "description": "Mark visited url.",
     "version": "1.0",
     "manifest_version": 3,
-    "action": {
-        "default_popup": "popup.html"
+    "options_page": "settings.html",
+    "permissions": [],
+    "action": {},
+    "background": {
+        "service_worker": "background.js"
     },
     "content_scripts": [
         {

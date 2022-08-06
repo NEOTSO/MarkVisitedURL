@@ -1,0 +1,11 @@
+.menu-item {
+    @apply py-3 px-5 cursor-pointer flex justify-between;
+}
+
+.menu-item:not(:first-child) {
+    @apply hover:bg-gray-300;
+}
+
+.menu-item+.menu-item {
+    @apply border-t border-gray-200;
+}

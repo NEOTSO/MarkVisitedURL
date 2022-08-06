@@ -9,11 +9,16 @@ const tsRule = {
     use: "ts-loader",
 };
 
+const cssRule = {
+    test: /\.css$/,
+    use: ["style-loader", "css-loader", "postcss-loader"],
+};
+
 const plugins = [
     new HtmlWebpackPlugin({
-        template: "src/popup/popup.html",
-        filename: "popup.html",
-        chunks: ["popup"],
+        template: "src/settings.html",
+        filename: "settings.html",
+        chunks: ["settings"],
     }),
     new CopyWebpackPlugin({
         patterns: [
@@ -30,15 +35,22 @@ module.exports = {
     mode: "development",
     devtool: "cheap-module-source-map",
     entry: {
-        popup: "./src/popup/popup.tsx",
+        settings: "./src/settings.tsx",
+        // popup: "./src/popup/popup.tsx",
+        background: "./src/background.ts",
         contentscript: "./src/contentscript.ts",
+        // options: "./src/options/index.tsx",
     },
     output: {
         filename: "[name].js",
         path: resolve(__dirname, "dist"),
     },
     module: {
-        rules: [tsRule],
+        rules: [tsRule, cssRule],
+        // rules: [tsRule],
     },
     plugins,
+    resolve: {
+        extensions: [".ts", ".js", ".tsx"],
+    },
 };
