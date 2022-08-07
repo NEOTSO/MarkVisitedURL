@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import MenuList from "../components/MenuList";
+
+const list: string[] = [
+    "ignore prefix", "ignore http/https"
+];
 
 export default () => {
     return (
         <div>
-            <h1>domain page</h1>
+            {/* <MenuList title="Domain Config" list={list} /> */}
         </div>
     );
-}
+};

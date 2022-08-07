@@ -1,18 +1,23 @@
-import React, { FC } from "react";
+import React, { FC, MouseEventHandler } from "react";
 import MenuItem from "./MenuItem";
 import "./MenuItem.css";
 
+interface IItem {
+    title: string,
+    func?: MouseEventHandler<HTMLLIElement>,
+}
+
 interface IProps {
     title: string;
-    list: string[];
+    list: IItem[];
 }
 
 const MenuList: FC<IProps> = ({ title, list }) => {
     return (
         <ul>
-            <MenuItem text={title} />
-            {list.map((item) => {
-                return <MenuItem text={item} />;
+            <MenuItem title={title} />
+            {list.map((item, index) => {
+                return <MenuItem key={index} title={item.title} onClick={item.func} />;
             })}
         </ul>
     );

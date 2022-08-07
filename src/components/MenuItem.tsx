@@ -1,14 +1,15 @@
-import React, { FC } from "react";
+import React, { FC, MouseEventHandler } from "react";
 // import { MoreOne } from "@icon-park/react";
 
 interface IProps {
-    text: string;
+    title: string;
+    onClick?: MouseEventHandler<HTMLLIElement>,
 }
 
-const MenuItem: FC<IProps> = (props) => {
+const MenuItem: FC<IProps> = ({title, onClick}) => {
     return (
-        <li className="menu-item">
-            <p>{props.text}</p>
+        <li className="menu-item" onClick={onClick}>
+            <p>{title}</p>
             {/* <MoreOne /> */}
         </li>
     );

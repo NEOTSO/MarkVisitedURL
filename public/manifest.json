@@ -4,8 +4,17 @@
     "version": "1.0",
     "manifest_version": 3,
     "options_page": "settings.html",
-    "permissions": [],
+    "permissions": ["tabs", "storage"],
     "action": {},
+    "commands": {
+        "save_url": {
+            "suggested_key": {
+                "default": "Alt+U",
+                "mac": "Alt+U"
+            },
+            "description": "save-url"
+        }
+    },
     "background": {
         "service_worker": "background.js"
     },
