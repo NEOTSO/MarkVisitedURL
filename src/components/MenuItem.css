@@ -1,11 +1,22 @@
 .menu-item {
-    @apply py-3 px-5 cursor-pointer flex justify-between;
+    @apply py-3 px-5 cursor-pointer flex justify-between relative;
 }
 
 .menu-item:not(:first-child) {
     @apply hover:bg-gray-300;
 }
 
-.menu-item+.menu-item {
+.menu-item + .menu-item {
     @apply border-t border-gray-200;
+}
+
+.input-file {
+    /* @apply absolute top-0 left-0 w-full h-full cursor-pointer text-[0]; */
+    @apply absolute top-0 left-0 w-full h-full cursor-pointer opacity-0;
+}
+
+input[type=file], /* FF, IE7+, chrome (except button) */
+input[type=file]::-webkit-file-upload-button {
+    /* chromes and blink button */
+    cursor: pointer;
 }

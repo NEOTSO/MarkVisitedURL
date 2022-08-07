@@ -3,8 +3,9 @@ import MenuItem from "./MenuItem";
 import "./MenuItem.css";
 
 interface IItem {
-    title: string,
-    func?: MouseEventHandler<HTMLLIElement>,
+    title: string;
+    func?: MouseEventHandler<HTMLLIElement>;
+    type?: string;
 }
 
 interface IProps {
@@ -17,7 +18,7 @@ const MenuList: FC<IProps> = ({ title, list }) => {
         <ul>
             <MenuItem title={title} />
             {list.map((item, index) => {
-                return <MenuItem key={index} title={item.title} onClick={item.func} />;
+                return <MenuItem key={index} title={item.title} onClick={item.func} type={item.type} />;
             })}
         </ul>
     );

@@ -3,7 +3,6 @@ import MenuList from "../components/MenuList";
 import { formatDate } from '../utils'
 const list = [ "Import Data", "Google Driver Sync", "Dropbox Sync"];
 
-
 function saveFile(str: string, name: string): void {
     const blob = new Blob([str], {
         type: "text/plain",
@@ -27,10 +26,18 @@ function exportData() {
     });
 }
 
+function importData() {
+
+}
+
 const list2 = [
     {
         title: "Export Data",
         func: exportData,
+    },
+    {
+        title: "Import Data2",
+        type: "input-file",
     }
 ]
 
