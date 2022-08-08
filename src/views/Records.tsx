@@ -1,15 +1,23 @@
-import React from "react";
+import React, { MouseEventHandler } from "react";
 import MenuList from "../components/MenuList";
 
-let historyList: string[] = []
+interface IItem {
+    title: string;
+    func?: MouseEventHandler<HTMLLIElement>;
+    type?: string;
+}
+
+let historyList: IItem[] = [];
 chrome.storage.local.get("urls", (data) => {
-    historyList = data?.urls ?? [];
+    historyList = (data?.urls ?? []).map((item: string) => ({
+        title: item,
+    }));
 });
 
 export default () => {
     return (
         <div>
-            {/* <MenuList title="Records" list={historyList} /> */}
+            <MenuList title="Records" list={historyList} />
         </div>
     );
 };
