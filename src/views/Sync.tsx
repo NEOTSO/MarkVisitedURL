@@ -1,7 +1,7 @@
 import React, { ChangeEvent, ChangeEventHandler } from "react";
 import { useNavigate } from "react-router-dom";
 import MenuList from "../components/MenuList";
-import { formatDate } from "../utils";
+import { formatDate, uniqueArray, } from "../utils";
 
 export default () => {
     let navigate = useNavigate();
@@ -38,8 +38,10 @@ export default () => {
             const result = JSON.parse(evt.target?.result as string);
             chrome.storage.local.get("urls", (data) => {
                 const oldUrl = data?.urls ?? [];
-                chrome.storage.local.set({ urls: [...result.data, ...oldUrl] }, () => {
-                    console.log("导入成功");
+                const newUrls = [...result.data, ...oldUrl];
+
+                chrome.storage.local.set({ urls: uniqueArray(newUrls) }, () => {
+                    console.log("import successfully.");
                     navigate("/", { replace: true });
                 });
             });
