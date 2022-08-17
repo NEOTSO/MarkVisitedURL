@@ -1,15 +1,14 @@
 import React from "react";
-import { MemoryRouter } from "react-router-dom";
+import { MemoryRouter, HashRouter } from "react-router-dom";
 import { Routes, Route, Link } from "react-router-dom";
 
-import Records from './views/Records'
-import Sync from './views/Sync'
-import Domain from './views/Domain'
+import Records from "./views/Records";
+import Sync from "./views/Sync";
+import Domain from "./views/Domain";
+import DomainEdit from "./views/DomainEdit";
 
 import { createRoot } from "react-dom/client";
 import SideBar from "./components/SideBar";
-import MenuList from "./components/MenuList";
-import RecordList from "./components/RecordList";
 
 import "./styles/index.css";
 
@@ -28,6 +27,7 @@ export const App = () => {
                     <Route path="/" element={<Records />} />
                     <Route path="/sync" element={<Sync />} />
                     <Route path="/domain" element={<Domain />} />
+                    <Route path="/domain/:id" element={<DomainEdit />} />
                 </Routes>
             </div>
         </div>
@@ -36,7 +36,10 @@ export const App = () => {
 
 const root = createRoot(document.getElementById("app") as Element);
 root.render(
-    <MemoryRouter>
+    // <MemoryRouter>
+    //     <App />
+    // </MemoryRouter>
+    <HashRouter>
         <App />
-    </MemoryRouter>
+    </HashRouter>
 );

@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer base {
+    input, textarea {
+        @apply outline-none rounded-sm;
+    }
+
+    textarea {
+        @apply resize-none;
+    }
+
+    button {
+        @apply border-gray-300 rounded-sm border px-2 py-1;
+    }
+}
